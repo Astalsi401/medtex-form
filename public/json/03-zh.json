@@ -1,0 +1,24 @@
+{
+  "teamId": "0tmxm1owmpr9x892",
+  "logoUrl": "https://astalsi401.github.io/medtex-team/18f5587576efc5ac9bb01253e494aa6c.png",
+  "contact": { "name": "Nina Tandon", "occupation": "CEO", "avatarUrl": "https://astalsi401.github.io/medtex-team/Ellipse 2.svg" },
+  "established": "2013",
+  "fundingAmount": "5000萬美元",
+  "annualRevenue": "N/A",
+  "currentFundingRound": "Pre-B bridge",
+  "currentFundingAmount": "200萬美元",
+  "postMoneyValuation": "1億美元",
+  "project": "創新脂肪幹細胞生物製程 客製化生成骨骼移植物",
+  "region": "US",
+  "company": "EpiBone",
+  "mainInvester": "Kendall Capital Partners, NJ Tech Council Ventures",
+  "highlights": ["全球首家也是唯一經美國FDA核准執行臨床試驗的幹細胞骨和軟骨產品，在 2021-2022 期間於 6 名患者身上已取得初步成功。", "目前正擴展至海灣 GCC 地區，目標為取得中東和亞洲地區的上市許可。"],
+  "coreTech": "利用人工智慧、機器人技術和生物3D列印製造，由成人脂肪和骨髓幹細胞改造重塑精確的骨骼和軟骨移植物。",
+  "coreTechKeywords": ["組織工程", "再生醫學", "3D生物列印"],
+  "targetMarket": "全球骨科、顱顏和重建手術市場，及中東/北非和亞洲地區的醫療旅遊市場。",
+  "coreProducts": [
+    { "name": "Bone", "type": "commodity", "progress": 0.7, "countries": "" },
+    { "name": "Cartilage", "type": "commodity", "progress": 0.5, "countries": "" }
+  ],
+  "milestones": ["sssssssssssssss ssssssssssssssssss sssssssss sssssssssss ssssssss sssssssss ssssss sssssss ssssssss ssssssssss sssssssssssss ssssssssssssssss", "阿聯和泰國臨床試驗的法規核准與執行"]
+}

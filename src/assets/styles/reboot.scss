@@ -1,0 +1,91 @@
+.material-symbols-outlined {
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+:root {
+  @each $color, $color-value in $theme-colors {
+    --page-#{$color}: #{$color-value};
+  }
+  --footer-height: 234px;
+  --Gradient_bg: linear-gradient(180deg, #e3e4ff 0%, #fff 20%);
+  --Gradient_light: linear-gradient(103deg, #e0dfff 33.46%, #f8f8ff 98.28%);
+  --Gradient_Main: linear-gradient(92deg, #0061cb 0%, #b20070 100%);
+  --Gradient_Main_400: linear-gradient(92deg, rgb(0, 97, 203, 0.4) 0%, rgb(178, 0, 112, 0.4) 100%);
+  --Gradient_orange: linear-gradient(92deg, #d25f00 2.8%, #f29600 41.77%);
+  --Border: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: var(--Gradient_bg);
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+header {
+  position: sticky;
+  z-index: 99;
+  top: 0;
+  font-weight: bold;
+  background-image: url(https://expo.taiwan-healthcare.org//data/tmp/20241107/20241107lp0by8.png);
+  background-size: cover;
+  & > div {
+    height: 64px;
+    backdrop-filter: blur(100px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      height: 100%;
+    }
+  }
+}
+
+footer {
+  border-top: 1px solid var(--Border);
+  height: var(--footer-height);
+  img {
+    width: min(500px, 100%);
+  }
+}
+
+@each $color, $color-value in $theme-colors {
+  .page-bg-#{$color} {
+    background-color: var(--page-#{$color});
+    --bg: var(--page-#{$color});
+  }
+  .page-text-#{$color} {
+    color: var(--page-#{$color});
+    --clr: var(--page-#{$color});
+  }
+  .page-bd-#{$color} {
+    border-color: var(--page-#{$color});
+  }
+}
+
+@each $size, $size-value in $text-size {
+  .page-text-#{$size} {
+    font-size: $size-value;
+  }
+}
+
+.page-rounded {
+  border-radius: 16px;
+}
+
+.page-bd {
+  border: 1px solid var(--Border);
+}
