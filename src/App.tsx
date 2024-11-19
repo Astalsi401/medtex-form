@@ -38,16 +38,14 @@ export const App = () => {
   );
 };
 
-const Content: React.FC = () => {
-  return (
-    <div className="container-xl py-5">
-      <div className="row g-sm-4 g-3">
-        <Info />
-        <DiscussionForm />
-      </div>
+const Content: React.FC = () => (
+  <div className="container-xl py-5">
+    <div className="row g-sm-4 g-3">
+      <Info />
+      <DiscussionForm />
     </div>
-  );
-};
+  </div>
+);
 
 const Header: React.FC = () => (
   <header className="page-text-white text-small">
