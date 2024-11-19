@@ -19,6 +19,7 @@ class FetchData {
   }
 }
 export const fetchData = new FetchData();
-export const getTeamInfo: (teamId: string, lang: string) => Promise<TeamInfo> = async (teamId, lang) => (["localhost", "astalsi401.github.io"].includes(window.location.hostname) ? await fetchData.get(`${import.meta.env.BASE_URL}json/${teamId}-${lang}.json`) : await fetchData.get(`https://api.taiwan-healthcare.org/api/v1/team/${teamId}?lang=${lang}`).then((res: TeamInfo) => ({ ...res, coreProducts: res.coreProducts.map((prod) => ({ ...prod, progress: Number(prod.progress) })) })));
+export const getTeamInfo: (teamId: string, lang: string) => Promise<TeamInfo> = async (teamId, lang) => (is_production() ? await fetchData.get(`https://api.taiwan-healthcare.org/api/v1/team/${teamId}?lang=${lang}`).then((res: TeamInfo) => (res.error ? res : { ...res, coreProducts: res.coreProducts.map((prod) => ({ ...prod, progress: Number(prod.progress) })) })) : await fetchData.get(`${import.meta.env.BASE_URL}json/${teamId}-${lang}.json`));
 export const getSearchParam = (name: string) => new URLSearchParams(window.location.search).get(name);
 export const submitForm = async (url: string, data: any) => await fetchData.post(url, data);
+export const is_production = () => !["localhost", "astalsi401.github.io"].includes(window.location.hostname);
