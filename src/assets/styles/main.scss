@@ -155,6 +155,9 @@
   display: grid;
   place-items: center;
   background-color: rgba(34, 34, 34, 0.3);
+  & > div {
+    min-width: min(90%, 600px);
+  }
 }
 
 .page-saving {
