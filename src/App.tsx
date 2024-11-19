@@ -13,22 +13,21 @@ export const App = () => {
   const saving = useAppSelector((state) => state.saving);
   const error = useAppSelector((state) => state.error);
   const completed = useAppSelector((state) => state.completed);
+  const getData = async () => {
+    const data = await getTeamInfo(getSearchParam("teamId") || "03", "zh");
+    if (data.error) console.error(data.error);
+    dispatch(setState({ loading: false, ...(data.error ? { error: data.error } : { data }) }));
+  };
   useEffect(() => {
     document.body.style.overflow = completed || error ? "hidden" : "auto";
   }, [completed, error]);
   useEffect(() => {
-    (async () => {
-      const data = await getTeamInfo(getSearchParam("teamId") || "03", "zh");
-      if (data.error) {
-        console.error(data.error);
-        dispatch(setState({ loading: false, error: data.error }));
-      } else {
-        dispatch(setState({ loading: false, data }));
-      }
-    })();
+    getData();
   }, []);
   return loading ? (
     <Loading />
+  ) : error ? (
+    <Modal back={true} />
   ) : (
     <>
       <Header />

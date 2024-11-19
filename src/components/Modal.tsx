@@ -1,12 +1,12 @@
 import { useAppSelector, useAppDispatch, setState } from "@store";
 
-export const Modal: React.FC = () => {
+export const Modal: React.FC<{ redirect?: string; back?: boolean }> = ({ redirect, back }) => {
   const saving = useAppSelector((state) => state.saving);
   const completed = useAppSelector((state) => state.completed);
   const error = useAppSelector((state) => state.error);
   return (
     <div className="dialog">
-      <div className="d-flex flex-column p-4 gap-5 page-bg-white page-rounded text-center">{saving ? <Saving /> : completed ? <Completed /> : error ? <Error /> : null}</div>
+      <div className="d-flex flex-column p-4 gap-5 page-bg-white page-rounded text-center">{saving ? <Saving /> : completed ? <Completed /> : error ? <Error redirect={redirect} back={back} /> : null}</div>
     </div>
   );
 };
@@ -30,17 +30,20 @@ const Completed: React.FC = () => (
   </>
 );
 
-const Error: React.FC = () => {
+const Error: React.FC<{ redirect?: string; back?: boolean }> = ({ redirect, back }) => {
   const dispatch = useAppDispatch();
   const error = useAppSelector((state) => state.error);
-  const closeModal = () => dispatch(setState({ completed: false, error: null }));
+  const closeModal = () => {
+    if (back) history.back();
+    dispatch(setState({ completed: false, error: null }));
+  };
   return (
     <>
       <div className="d-flex flex-column gap-2">
-        <div className="page-text-xx-large fw-bold">無法傳送！</div>
-        <div>錯誤原因：{error}</div>
+        <div className="page-text-xx-large fw-bold">Error！</div>
+        <div>{error}</div>
       </div>
-      <a className="page-btn d-block p-3 mx-auto text-center fw-bold page-bd-primary page-bg-primary page-text-white" onClick={closeModal}>
+      <a className="page-btn d-block p-3 mx-auto text-center fw-bold page-bd-primary page-bg-primary page-text-white" {...(redirect ? { href: redirect } : { onClick: closeModal })}>
         確定
       </a>
     </>
