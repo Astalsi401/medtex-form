@@ -1,0 +1,25 @@
+{
+  "teamId": "15",
+  "lang": "EN",
+  "region": "Japan",
+  "project": "",
+  "company": "PRISM BioLab",
+  "contact": { "name": "Dai Takehara", "occupation": "President & CEO", "avatarUrl": "https://expo.taiwan-healthcare.org/data/cht/20241116/20241116wx1p0l.jpeg" },
+  "logoUrl": "https://expo.taiwan-healthcare.org/data/cht/20241116/20241116vfl470.jpeg",
+  "mainInvester": "DBJ Capital",
+  "established": "2006",
+  "fundingAmount": "$60M",
+  "annualRevenue": "$2M",
+  "currentFundingRound": "IPO round",
+  "currentFundingAmount": "$14M",
+  "postMoneyValuation": "On Market",
+  "highlights": ["Number of Programs both internal and collaborations with global pharma."],
+  "coreTech": "Small molecule platform enabling to target intracellular PPI.",
+  "coreTechKeywords": ["Protein-Protein Interaction", "Small molecule", "Peptide mimetics"],
+  "targetMarket": "Growth market",
+  "coreProducts": [
+    { "name": "E7386", "type": "drug", "progress": 0.7, "countries": "" },
+    { "name": "PRI724", "type": "drug", "progress": 0.7, "countries": "" }
+  ],
+  "milestones": ["Traded at Tokyo Stock Exchange."]
+}

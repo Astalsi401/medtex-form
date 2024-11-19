@@ -1,8 +1,8 @@
 {
   "teamId": "03",
-  "lang": "ZH",
+  "lang": "EN",
   "region": "USA",
-  "project": "創新脂肪幹細胞生物製程 客製化生成骨骼移植物",
+  "project": "Custom Bone Graft Generation through Innovative Adipose Stem Cell Bioprocessing",
   "company": "EpiBone",
   "contact": { "name": "Nina Tandon", "occupation": "CEO", "avatarUrl": "https://expo.taiwan-healthcare.org/data/cht/20241104/202411044qpmk8.jpeg" },
   "logoUrl": "https://expo.taiwan-healthcare.org/data/cht/20241104/20241104npf0v7.png",
@@ -13,15 +13,13 @@
   "currentFundingRound": "Pre-series B bridge",
   "currentFundingAmount": "$2M",
   "postMoneyValuation": "$100M",
-  "highlights": ["First and only company with FDA-cleared, stem-cell-based bone and cartilage products for clinical use in humans, with proven success in six patients from 2021-2022. Currently expanding into the GCC region, aiming for regulatory approvals and market entry in the Middle East, and Asia.", "", "", "", ""],
+  "highlights": ["First and only company with FDA-cleared, stem-cell-based bone and cartilage products for clinical use in humans, with proven success in six patients from 2021-2022. Currently expanding into the GCC region, aiming for regulatory approvals and market entry in the Middle East, and Asia."],
   "coreTech": "Lab-grown, anatomically precise bone and cartilage engineered from adult fat and bone-marrow derived-stem cells, utilizing AI, robotics, and 3D fabrication.",
   "coreTechKeywords": ["Tissue Engineering", "Regenerative medicine", "3D biofabrication"],
   "targetMarket": "Orthopedic, craniofacial, and reconstructive surgery markets globally, with a focus on medical tourism hubs in the MENA and Asia regions.",
   "coreProducts": [
-    { "name": "Bone", "type": "device", "progress": "0.625", "countries": "" },
-    { "name": "Cartilage", "type": "device", "progress": "0.625", "countries": "" },
-    { "type": "", "progress": "", "countries": "" }
+    { "name": "Bone", "type": "device", "progress": 0.625, "countries": "" },
+    { "name": "Cartilage", "type": "device", "progress": 0.625, "countries": "" }
   ],
-  "milestones": ["Regulatory approvals for clinical trials in UAE and Thailand.", "", "", "", ""],
-  "show": "v"
+  "milestones": ["Regulatory approvals for clinical trials in UAE and Thailand."]
 }
