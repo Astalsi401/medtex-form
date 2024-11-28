@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler, UseFormRegister, FieldErrors, UseFormWatch } from "react-hook-form";
 import { DiscussionFormValue, Discussion } from "@types";
 import { Button } from "./Button";
-import { setDiscussionOther, setState, useAppDispatch, useAppSelector } from "@/assets/store";
+import { setDiscussionOther, setState, useAppDispatch, useAppSelector, others } from "@/assets/store";
 import { submitForm } from "@functions";
 
 export const DiscussionForm: React.FC = () => {
@@ -36,8 +36,8 @@ export const DiscussionForm: React.FC = () => {
       capital: Number(data.capital),
       aum: Number(data.aum),
       fundSize: Number(data.fundSize),
-      type: data.type === "其他" ? other.type : data.type,
-      investmentFields: data.investmentFields.map((d) => (d === "其他" ? other.investmentFields : d)).filter((d) => d.length > 0),
+      type: data.type === others ? other.type : data.type,
+      investmentFields: data.investmentFields.map((d) => (d === others ? other.investmentFields : d)).filter((d) => d.length > 0),
       contact: {
         nameZh: data.contactNameZh,
         nameEn: data.contactNameEn,
@@ -58,52 +58,31 @@ export const DiscussionForm: React.FC = () => {
               <div className="row g-sm-4 g-3">
                 <div className="col-12">
                   <Danger />
-                  為必填欄位
+                  Required
                 </div>
                 <div className="col-sm-6">
-                  <Input label="單位名稱 - 中文" name="nameZh" type="text" placeholder="請填寫中文全名" required={true} register={register} errors={errors} />
+                  <Input label="Company Name" name="nameZh" type="text" placeholder="Company Name" required={true} register={register} errors={errors} />
                 </div>
                 <div className="col-sm-6">
-                  <Input label="單位名稱 - 英文" name="nameEn" type="text" placeholder="請填寫英文全名" required={true} register={register} errors={errors} />
-                </div>
-                <div className="col-sm-6">
-                  <Input label="單位成立日期" name="established" type="date" placeholder="年 / 月/ 日" required={true} register={register} errors={errors} />
-                </div>
-                <div className="col-sm-6">
-                  <Input label="資本額 (新台幣 - 元)" name="capital" type="number" placeholder="請以新台幣為單位" required={true} register={register} errors={errors} />
+                  <Input label="Assets Under Management (USD)" name="capital" type="number" required={true} register={register} errors={errors} />
                 </div>
                 <div className="col-12">
-                  <Select label="單位類型" name="type" type="radio" options={["VC", "CVC", "天使投資", "其他"]} required={true} register={register} errors={errors} watch={watch} />
-                </div>
-                <div className="col-sm-6">
-                  <Input label="資產管理規模 AUM (新台幣 - 元)" name="aum" type="number" placeholder="請以新台幣為單位" required={true} register={register} errors={errors} />
-                </div>
-                <div className="col-sm-6">
-                  <Input label="資金規模 Fund Size (新台幣 - 元)" name="fundSize" type="number" placeholder="請以新台幣為單位" required={true} register={register} errors={errors} />
+                  <Select label="Preference Sector" name="investmentFields" type="checkbox" options={["Immunotherapy", "Gene Therapy", "Innovative Medical Devices", "Regenerative Medicine", "New Drug Development", "Precision Detection", "Smart Medical Devices", "Healthcare Technology", "Environment and Energy Technology", others]} required={true} register={register} errors={errors} watch={watch} />
                 </div>
                 <div className="col-12">
-                  <Select label="投資領域" name="investmentFields" type="checkbox" options={["免疫治療", "基因治療", "創新醫材", "再生醫學", "新藥開發", "精準檢測", "智慧醫療", "健康科技", "環境綠能", "其他"]} required={true} register={register} errors={errors} watch={watch} />
-                </div>
-                <div className="col-12">
-                  <Select label="投資案件階段" name="fundingRounds" type="checkbox" options={["種子輪", "天使輪", "Pre-A", "A", "B", "C", "Pre-IPO"]} required={true} register={register} errors={errors} watch={watch} />
+                  <Select label="Preference Stage" name="fundingRounds" type="checkbox" options={["Seed Stage", "Development Stage", "Growth Stage", "Expansion Stage", "Listed Company"]} required={true} register={register} errors={errors} watch={watch} />
                 </div>
                 <div className="col-sm-6">
-                  <Input label="商洽聯絡人姓名 - 中文" name="contactNameZh" type="text" required={true} register={register} errors={errors} />
+                  <Input label="Contact Person Name" name="contactNameZh" type="text" required={true} register={register} errors={errors} />
                 </div>
                 <div className="col-sm-6">
-                  <Input label="商洽聯絡人姓名 - 英文" name="contactNameEn" type="text" required={true} register={register} errors={errors} />
+                  <Input label="Contact Person Title" name="contactOccupationZh" type="text" required={true} register={register} errors={errors} />
                 </div>
                 <div className="col-sm-6">
-                  <Input label="商洽聯絡人職稱 - 中文" name="contactOccupationZh" type="text" placeholder="請填寫目前擔任的職位名稱" required={true} register={register} errors={errors} />
+                  <Input label="Contact Person Mobile" name="contactTel" type="tel" required={true} register={register} errors={errors} />
                 </div>
                 <div className="col-sm-6">
-                  <Input label="商洽聯絡人職稱 - 英文" name="contactOccupationEn" type="text" placeholder="請填寫目前擔任的職位名稱" required={true} register={register} errors={errors} />
-                </div>
-                <div className="col-sm-6">
-                  <Input label="商洽聯絡人電話" name="contactTel" type="tel" placeholder="請包含國碼/區碼" required={true} register={register} errors={errors} />
-                </div>
-                <div className="col-sm-6">
-                  <Input label="商洽聯絡人電子郵件" name="contactEmail" type="email" required={true} register={register} errors={errors} />
+                  <Input label="Contact Person Email" name="contactEmail" type="email" required={true} register={register} errors={errors} />
                 </div>
               </div>
             </div>
@@ -111,7 +90,7 @@ export const DiscussionForm: React.FC = () => {
         </div>
         <div className="col-12">
           <Button className="page-btn d-block p-3 my-5 mx-auto text-center fw-bold page-bd-primary page-bg-primary page-text-white" loading={saving}>
-            提交商洽申請
+            Submit
             <i className="fa-solid fa-chevron-right ms-3" />
           </Button>
         </div>
@@ -149,20 +128,20 @@ const Select: React.FC<SelectProps> = ({ label, name, type, options, register, e
     <div className="w-100">
       <div className="fw-bold">
         {label}
-        {type === "checkbox" ? " (可複選)" : ""} {required && <Danger />}
+        {type === "checkbox" ? " (multi-select)" : ""} {required && <Danger />}
       </div>
       <div className={`d-flex flex-wrap mt-2 page-select ${errors[name] ? "is-invalid" : ""}`}>
         {options.map((value) => (
           <div key={`${name}-${value}`}>
             <input id={`${name}-${value}`} type={type} value={value} {...register(name, { required })} />
-            <label className="d-block text-center fw-bold" htmlFor={`${name}-${value}`}>
+            <label className="d-flex align-items-center justify-content-center text-center fw-bold h-100" htmlFor={`${name}-${value}`}>
               {value}
             </label>
           </div>
         ))}
-        {((typeof current === "string" && current === "其他") || (Array.isArray(current) && current.includes("其他"))) && (
-          <div className="page-input">
-            <input className="d-block" type="text" placeholder={`請輸入其他${label}`} onChange={onChange} required={required} />
+        {((typeof current === "string" && current === others) || (Array.isArray(current) && current.includes(others))) && (
+          <div className="page-input d-flex">
+            <input className="d-block" type="text" placeholder="please specify" onChange={onChange} required={required} />
           </div>
         )}
       </div>

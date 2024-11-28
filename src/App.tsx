@@ -52,8 +52,8 @@ const Header: React.FC = () => (
     <div>
       <img className="logo d-block" src="https://expo.taiwan-healthcare.org//data/tmp/20230928/20230928epf7fo.svg" alt="logo" />
       <div className="px-2">
-        <div>2024.12.03(二)-12.04(三)</div>
-        <div>台北寒舍艾美酒店3F翡翠珍珠廳</div>
+        <div>2024.12.03(Tue)-12.04(Wed)</div>
+        <div>3F, Ballroom, Le Méridien Taipei</div>
       </div>
     </div>
   </header>

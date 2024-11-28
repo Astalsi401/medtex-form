@@ -29,6 +29,8 @@ const stateSlice = createSlice({
   },
 });
 
+export const others = "Others";
+
 export const store = configureStore({
   reducer: stateSlice.reducer,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }),
