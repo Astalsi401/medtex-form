@@ -13,7 +13,7 @@ export const Modal: React.FC<{ redirect?: string; back?: boolean }> = ({ redirec
 
 const Saving: React.FC = () => (
   <div className="d-flex flex-column gap-2">
-    <div className="page-text-xx-large fw-bold">儲存中...</div>
+    <div className="page-text-xx-large fw-bold">Sending...</div>
     <div className="page-saving mx-auto"></div>
   </div>
 );
@@ -21,11 +21,11 @@ const Saving: React.FC = () => (
 const Completed: React.FC = () => (
   <>
     <div className="d-flex flex-column gap-2">
-      <div className="page-text-xx-large fw-bold">已收到您的洽談申請！</div>
-      <div>主辦單位將於11/20前通知申請結果及安排交流時段，謝謝!</div>
+      <div className="page-text-xx-large fw-bold">We have received your application.</div>
+      <div>We will contact you to arrange further collaboration discussions with the company.</div>
     </div>
     <a className="page-btn d-block p-3 mx-auto text-center fw-bold page-bd-primary page-bg-primary page-text-white" href="https://expo.taiwan-healthcare.org/zh/medtex/2024">
-      確定
+      Confirm
     </a>
   </>
 );
@@ -44,7 +44,7 @@ const Error: React.FC<{ redirect?: string; back?: boolean }> = ({ redirect, back
         <div>{error}</div>
       </div>
       <a className="page-btn d-block p-3 mx-auto text-center fw-bold page-bd-primary page-bg-primary page-text-white" {...(redirect ? { href: redirect } : { onClick: closeModal })}>
-        確定
+        Confirm
       </a>
     </>
   );
