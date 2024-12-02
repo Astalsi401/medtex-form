@@ -87,11 +87,12 @@
 .page-input {
   padding: 13px 0;
   border-bottom: 1px solid var(--Border);
-  input {
+  input,
+  textarea {
     outline: none;
     border: none;
   }
-  &:has(input:focus) {
+  &:has(input:focus, textarea:focus) {
     --Border: var(--page-primary);
   }
 }
